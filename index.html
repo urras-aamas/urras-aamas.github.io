@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Think, Consult, Learn, Reorganize: Recursive Metareasoning for Self-Modifying Agent Societies. URRAS routes uncertainty into Think, Consult, Learn or Reorganize actions by their estimated value of computation.">
+  <meta property="og:title" content="Think, Consult, Learn, Reorganize: Recursive Metareasoning for Self-Modifying Agent Societies"/>
+  <meta property="og:description" content="A research agenda for metareasoning in agent societies that rewrite their own action space."/>
+  <meta property="og:image" content="static/images/overview.png" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="static/images/overview.png">
+
+  <meta name="citation_title" content="Think, Consult, Learn, Reorganize: Recursive Metareasoning for Self-Modifying Agent Societies">
+  <meta name="citation_author" content="Roy, Tirtho">
+  <meta name="citation_author" content="Howlader, Koushik">
+  <meta name="citation_author" content="Yash, Nilutpaul Sarker">
+  <meta name="citation_author" content="Bhattacharjee, Tanusree">
+  <meta name="citation_author" content="Chakraborty, Sayantan">
+  <meta name="citation_author" content="Roy, Adrito">
+  <meta name="citation_author" content="Bhattacharjee, Ushashi">
+  <meta name="citation_pdf_url" content="static/paper/paper.pdf">
+
+  <title>URRAS: Recursive Metareasoning for Self-Modifying Agent Societies</title>
+  <link rel="icon" type="image/x-icon" href="static/images/overview.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans:400,500,700|Noto+Sans:400,600,700|Castoro&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="static/css/clear.css?v=2">
+  <link rel="stylesheet" href="static/css/flow.css">
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<!-- Sticky section nav -->
+<nav class="clear-nav" aria-label="Sections">
+  <div class="inner">
+    <a class="brand" href="#top" aria-label="URRAS home" style="font-family:'Google Sans',sans-serif;font-weight:700;color:var(--navy);letter-spacing:1px">URRAS</a>
+    <div class="links">
+      <a href="#tldr">Thesis</a><a href="#abstract">Abstract</a><a href="#loop">The loop</a><a href="#recursion">Recursion</a>
+      <a href="#control">Control</a><a href="#problems">Open problems</a><a href="#predictions">Predictions</a><a href="#team">Team</a><a href="#BibTeX">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero clear-hero" id="top">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="venue-row">
+        <span class="venue-badge"><span class="nips">AAMAS 2027</span> Blue Sky Ideas Track</span>
+        <span class="tag-review">Under Review</span>
+      </div>
+      <h1 class="title is-1 publication-title"><span class="grad-text">Think, Consult, Learn, Reorganize:</span> Recursive Metareasoning for Self-Modifying Agent Societies</h1>
+      <div class="is-size-5 publication-authors">
+        <div class="author-list">
+          <span class="author-block">Tirtho Roy,</span><span class="author-block">Koushik Howlader,</span><span class="author-block">Nilutpaul Sarker Yash,</span>
+          <span class="author-block">Tanusree Bhattacharjee,</span><span class="author-block">Sayantan Chakraborty,</span><span class="author-block">Adrito Roy,</span><span class="author-block">Ushashi Bhattacharjee</span>
+        </div>
+        <!-- TODO: add per-author affiliations (Iowa State is confirmed for Tirtho Roy, Koushik Howlader, Tanusree Bhattacharjee and Ushashi Bhattacharjee on the CLEAR page) -->
+        <p class="venue-line">AAMAS 2027 Blue Sky Ideas Track<span class="sub">Manuscript under review &mdash; not yet accepted or published</span></p>
+      </div>
+      <div class="publication-links">
+        <span class="link-block"><a href="static/paper/paper.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span></a></span>
+        <!-- TODO: add arXiv link once the preprint is posted -->
+        <span class="link-block"><a href="#BibTeX" class="external-link button is-normal is-rounded is-dark"><span class="icon"><i class="fas fa-quote-right"></i></span><span>BibTeX</span></a></span>
+      </div>
+      <div class="stat-strip">
+        <div class="stat"><div class="num">4</div><div class="lbl">escalating<br>interventions</div></div>
+        <div class="stat"><div class="num">6</div><div class="lbl">deficiency<br>sources</div></div>
+        <div class="stat"><div class="num">7</div><div class="lbl">open<br>problems</div></div>
+        <div class="stat"><div class="num">4</div><div class="lbl">falsifiable<br>predictions</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-tint" id="tldr">
+  <div class="container">
+    <div class="hypo">
+      <div class="hd"><i class="fas fa-lightbulb"></i> Central Thesis</div>
+      <div class="bd">
+        Classical metareasoning chooses among computations from a menu that is given in advance. Generative agent societies break that assumption:
+        they can write skills, spawn agents and create sub-societies, so <b>every decision can change the action set available to all later decisions</b>.
+        We argue this calls for a theory of recursive metareasoning.
+        <div class="tldr"><b class="k">TL;DR</b>
+          URRAS routes uncertainty into Think, Consult, Learn or Reorganize actions by their estimated value of computation, and lets hard subproblems recursively create child societies governed by the same controller.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered"><div class="column is-four-fifths">
+      <span class="sec-kicker">Overview</span>
+      <h2 class="title is-3">Abstract</h2>
+      <div class="content has-text-justified"><p>When an agent is uncertain, should it think longer, consult another agent, acquire a new skill, reorganize its team, or admit that further computation is unlikely to help? Classical metareasoning answers such questions by weighing the expected value of a computation against its cost, but it assumes that the set of available computational actions is known and fixed. Generative agent societies violate this assumption: they can synthesize skills, open communication channels, instantiate specialists and entire sub-societies, and thereby change the very action space over which future metareasoning operates. We propose Uncertainty-Routed Recursive Agent Societies (URRAS) as a research agenda for metareasoning in such self-modifying systems. URRAS organizes computation around four escalating interventions (Think, Consult, Learn, Reorganize) and lets hard subproblems recursively instantiate child societies governed by the same controller. Uncertainty is treated not as an objective to minimize but as diagnostic evidence for estimating the value of further computation. This perspective exposes new multi-agent problems: identifying why a society is uncertain, allocating budgets across nested societies, assigning credit across recursive interventions, eliciting truthful uncertainty reports from strategic agents, and keeping self-modifying organizations stable. We outline these challenges and state falsifiable predictions by which the paradigm can be tested under matched inference budgets.</p></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="section is-tint" id="loop">
+  <div class="container">
+    <div class="has-text-centered" style="margin-bottom:1.4rem">
+      <span class="sec-kicker">The loop</span>
+      <h2 class="title is-3">Diagnose, route, escalate</h2>
+    </div>
+    <div class="viz flow">
+      <h3>1 &middot; Diagnose, route, escalate, recurse</h3>
+      <p class="cap">Hover or tap an action. Dashes show information flowing; the dotted violet loops are residual uncertainty (re-diagnose) and the return from a delegated child society.</p>
+      <svg viewBox="0 0 1000 400" role="img" aria-label="URRAS flowchart">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7d6bc4"/></marker>
+          <linearGradient id="gd" x1="0" x2="1"><stop offset="0" stop-color="#5b3fd0"/><stop offset="1" stop-color="#f08a3c"/></linearGradient>
+        </defs>
+        <!-- main path -->
+        <path class="edge flowing" d="M118 205 H160" marker-end="url(#ah)"/>
+        <path class="edge flowing" d="M338 205 H398" marker-end="url(#ah)"/>
+        <g class="node"><rect x="20" y="170" width="98" height="70"/><text x="69" y="200" text-anchor="middle">Task x<tspan dy="3" font-size="9">t</tspan></text><text x="69" y="222" text-anchor="middle" class="sub">budget B</text></g>
+        <g class="node"><rect x="165" y="150" width="175" height="110" style="stroke:url(#gd)"/>
+          <text x="252" y="178" text-anchor="middle" style="font-weight:700">Deficiency diagnosis</text>
+          <text x="252" y="198" text-anchor="middle" class="sub">P(z | s, H)</text>
+          <text x="252" y="218" text-anchor="middle" class="sub">reasoning · knowledge · skill</text>
+          <text x="252" y="233" text-anchor="middle" class="sub">coordination · organization · irreducible</text></g>
+        <g class="node"><rect x="400" y="150" width="175" height="110" style="stroke:url(#gd)"/>
+          <text x="487" y="178" text-anchor="middle" style="font-weight:700">Controller &Pi;</text>
+          <text x="487" y="200" text-anchor="middle" class="sub">max  VOC(a | z) &minus; &lambda;C(a)</text>
+          <text x="487" y="220" text-anchor="middle" class="sub">uncertainty is evidence,</text>
+          <text x="487" y="234" text-anchor="middle" class="sub">not the objective</text></g>
+        <!-- fan-out edges -->
+        <path class="edge flowing" d="M575 205 C610 205 600 55 640 55" marker-end="url(#ah)"/>
+        <path class="edge flowing" d="M575 205 C610 205 610 130 640 130" marker-end="url(#ah)"/>
+        <path class="edge flowing" d="M575 205 H640" marker-end="url(#ah)"/>
+        <path class="edge flowing" d="M575 205 C610 205 610 280 640 280" marker-end="url(#ah)"/>
+        <path class="edge flowing" d="M575 205 C610 205 600 355 640 355" marker-end="url(#ah)"/>
+        <!-- actions -->
+        <g class="act a-think" data-k="think"><rect class="ring" x="640" y="30" width="215" height="50" rx="10"/><rect x="640" y="30" width="215" height="50" rx="10" style="fill:#fff"/><text class="h" x="655" y="52">Think</text><text x="655" y="69" font-size="11" fill="#5b6676">another internal pass</text></g>
+        <g class="act a-consult" data-k="consult"><rect class="ring" x="640" y="105" width="215" height="50" rx="10"/><rect x="640" y="105" width="215" height="50" rx="10" style="fill:#fff"/><text class="h" x="655" y="127">Consult</text><text x="655" y="144" font-size="11" fill="#5b6676">targeted query to j &isin; G</text></g>
+        <g class="act a-learn" data-k="learn"><rect class="ring" x="640" y="180" width="215" height="50" rx="10"/><rect x="640" y="180" width="215" height="50" rx="10" style="fill:#f7f5fd"/><text class="h" x="655" y="202">Learn</text><text x="655" y="219" font-size="11" fill="#5b6676">retrieve / compose / create skill</text><text class="badge" x="805" y="202">&#9889; changes A</text></g>
+        <g class="act a-reorg" data-k="reorg"><rect class="ring" x="640" y="255" width="215" height="50" rx="10"/><rect x="640" y="255" width="215" height="50" rx="10" style="fill:#f7f5fd"/><text class="h" x="655" y="277">Reorganize</text><text x="655" y="294" font-size="11" fill="#5b6676">edit roles, agents N, edges G</text><text class="badge" x="805" y="277">&#9889; changes A</text></g>
+        <g class="act a-deleg" data-k="deleg"><rect class="ring" x="640" y="330" width="215" height="50" rx="10"/><rect x="640" y="330" width="215" height="50" rx="10" style="fill:#fff"/><text class="h" x="655" y="352">Delegate(x&prime;, B&prime;)</text><text x="655" y="369" font-size="11" fill="#5b6676">child society runs URRAS</text></g>
+        <!-- answer -->
+        <g class="node"><rect x="900" y="170" width="92" height="70"/><text x="946" y="196" text-anchor="middle" style="font-weight:700">Answer</text><text x="946" y="212" text-anchor="middle" class="sub">or Abstain</text><text x="946" y="228" text-anchor="middle" class="sub">y, S&#8203;(t+1)</text></g>
+        <path class="edge" style="stroke:#b8add9" d="M855 55 C885 55 885 190 900 190"/>
+        <path class="edge" style="stroke:#b8add9" d="M855 130 C880 130 885 195 900 198"/>
+        <path class="edge" style="stroke:#b8add9" d="M855 205 H900" marker-end="url(#ah)"/>
+        <path class="edge" style="stroke:#b8add9" d="M855 280 C880 280 885 215 900 212"/>
+        <!-- loops -->
+        <path class="edge loop" d="M946 170 V12 H252 V150" marker-end="url(#ah)"/>
+        <text x="520" y="26" text-anchor="middle" font-size="11" fill="#c2307f">residual uncertainty &rarr; re-diagnose and route again</text>
+        <path class="edge loop" d="M747 380 V395 H487 V260" marker-end="url(#ah)"/>
+        <text x="617" y="391" text-anchor="middle" font-size="11" fill="#c2307f">child returns (y&prime;, &ucirc;&prime;, c&prime;): a full copy of this loop</text>
+        <circle class="pulse" r="5"><animateMotion dur="5s" repeatCount="indefinite" path="M69 205 H165 M165 205 H340 M340 205 H400 M400 205 H575 C610 205 610 130 640 130 H855 C880 130 885 195 900 198"/></circle>
+      </svg>
+      <div class="panel" id="flow-panel"><strong>Tap an action</strong> to see when the controller picks it. <b class="l">Learn</b> and <b class="r">Reorganize</b> are flagged &#9889; because they rewrite the action set itself.</div>
+    </div>
+    <div class="viz">
+      <h3>2 &middot; The escalation ladder</h3>
+      <p class="cap">Four interventions, ordered by how much they cost and how long their effect lasts. The controller climbs only when the diagnosis says the cheaper rung will not help.</p>
+      <div class="ladder">
+        <div class="rung t"><div class="n">RUNG 1</div><h4>Think</h4><p>Another reasoning pass.</p><span class="tag">reasoning deficit</span><span class="tag">per pass</span>
+          <div class="meter"><i data-w="18"></i></div><div class="lbl"><span>cost</span><span>low</span></div></div>
+        <div class="rung c"><div class="n">RUNG 2</div><h4>Consult</h4><p>Ask a colleague who holds the evidence.</p><span class="tag">knowledge held elsewhere</span><span class="tag">per exchange</span>
+          <div class="meter"><i data-w="40"></i></div><div class="lbl"><span>cost</span><span>medium</span></div></div>
+        <div class="rung l"><span class="chg">&#9889; changes A</span><div class="n">RUNG 3</div><h4>Learn</h4><p>Acquire or compose a skill.</p><span class="tag">capability gap</span><span class="tag">per task family</span>
+          <div class="meter"><i data-w="68"></i></div><div class="lbl"><span>cost</span><span>high, amortized</span></div></div>
+        <div class="rung r"><span class="chg">&#9889; changes A</span><div class="n">RUNG 4</div><h4>Reorganize</h4><p>Rewire roles, agents and edges.</p><span class="tag">recurrent coordination failure</span><span class="tag">over many tasks</span>
+          <div class="meter"><i data-w="92"></i></div><div class="lbl"><span>cost</span><span>highest, investment</span></div></div>
+      </div>
+      <div class="ladder-arrow">&#8592; cheap, immediate payoff &nbsp;&nbsp;|&nbsp;&nbsp; expensive, long-run payoff &#8594; &nbsp; &middot; &nbsp; irreducible uncertainty &rarr; <b>Abstain</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="recursion">
+  <div class="container">
+    <div class="has-text-centered" style="margin-bottom:1.4rem">
+      <span class="sec-kicker">Recursion</span>
+      <h2 class="title is-3">Societies inside societies, and an action set that rewrites itself</h2>
+    </div>
+    <div class="viz">
+      <h3>3 &middot; Recursion: societies inside societies</h3>
+      <p class="cap">Each Delegate creates a child running the same controller on a smaller budget. Budgets nest; answers and uncertainty reports flow back up.</p>
+      <div class="nest">
+        <div class="hd"><b>Society S &middot; budget B</b><div class="bud"><i style="width:100%"></i></div><span>URRAS(x, B)</span></div>
+        <div class="nest">
+          <div class="hd"><b>Child S&prime; &middot; B&prime; &lt; B</b><div class="bud"><i style="width:62%"></i></div><span>URRAS(x&prime;, B&prime;)</span></div>
+          <div class="nest">
+            <div class="hd"><b>Grandchild S&Prime; &middot; B&Prime; &lt; B&prime;</b><div class="bud"><i style="width:30%"></i></div><span>URRAS(x&Prime;, B&Prime;)</span></div>
+            <div class="ret">returns (y&Prime;, &ucirc;&Prime;, c&Prime;) &uarr;</div>
+          </div>
+          <div class="ret">returns (y&prime;, &ucirc;&prime;, c&prime;) &uarr; &nbsp;the parent decides how far to trust &ucirc;&prime;</div>
+        </div>
+        <div class="self">URRAS(x, B) = F( x, URRAS(x<sub>1</sub>, B<sub>1</sub>), &hellip;, URRAS(x<sub>k</sub>, B<sub>k</sub>) ) &nbsp;with &Sigma;B<sub>i</sub> &le; remaining budget</div>
+      </div>
+    </div>
+    <div class="viz">
+      <h3>5 &middot; The action set rewrites itself</h3>
+      <p class="cap">Classical metareasoning optimizes over a fixed menu. Try it: each Learn or Reorganize adds options that did not exist a moment ago.</p>
+      <div class="btns">
+        <button id="btn-learn">&#9889; Learn a skill</button>
+        <button id="btn-reorg">&#9889; Reorganize: spawn a specialist</button>
+        <button id="btn-reset" class="reset">Reset</button>
+      </div>
+      <div class="setlbl">AVAILABLE ACTIONS A(S)</div>
+      <div class="set" id="set"></div>
+      <div class="sizeline" id="setsize"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-tint" id="control">
+  <div class="container">
+    <div class="has-text-centered" style="margin-bottom:1.4rem">
+      <span class="sec-kicker">Control</span>
+      <h2 class="title is-3">Why diagnosis, not uncertainty, drives the choice</h2>
+    </div>
+    <div class="viz">
+      <h3>6 &middot; Why uncertainty is evidence, not the objective</h3>
+      <p class="cap">An uncertainty-minimizing controller finds the cheapest way to make agents agree. In language-agent groups that is often conformity.</p>
+      <div class="vs">
+        <div class="lane bad"><h4>&#10007; Minimize uncertainty</h4><ul class="steps">
+          <li>Agents disagree &rarr; uncertainty is high</li><li>Cheapest fix: let the majority persuade the rest</li><li>Disagreement vanishes, confidence rises</li><li>Confidently wrong (echo chamber)</li></ul></div>
+        <div class="lane good"><h4>&#10003; Maximize value of computation</h4><ul class="steps">
+          <li>Agents disagree &rarr; treat it as a symptom</li><li>Diagnose the source: reasoning, knowledge, skill&hellip;</li><li>Pick the action whose estimated value beats its cost</li><li>Act, or Abstain if irreducible</li></ul></div>
+      </div>
+    </div>
+    <div class="viz">
+      <h3>4 &middot; Diagnosis decides the action</h3>
+      <p class="cap">Illustrative routing the controller should learn: each deficiency source points to a different family of actions. Irreducible uncertainty ends in Abstain.</p>
+      <table class="heat">
+        <thead><tr><th></th><th>Think</th><th>Consult</th><th>Learn</th><th>Reorganize</th><th>Abstain</th></tr></thead>
+        <tbody>
+          <tr><th class="rw">Reasoning slip</th><td class="h3">&#9733;&#9733;&#9733;</td><td class="h1">&#9733;</td><td class="h0">.</td><td class="h0">.</td><td class="h0">.</td></tr>
+          <tr><th class="rw">Missing knowledge</th><td class="h1">&#9733;</td><td class="h3">&#9733;&#9733;&#9733;</td><td class="h1">&#9733;</td><td class="h0">.</td><td class="h0">.</td></tr>
+          <tr><th class="rw">Skill gap</th><td class="h1">&#9733;</td><td class="h1">&#9733;</td><td class="h3">&#9733;&#9733;&#9733;</td><td class="h1">&#9733;</td><td class="h0">.</td></tr>
+          <tr><th class="rw">Coordination failure</th><td class="h0">.</td><td class="h2">&#9733;&#9733;</td><td class="h1">&#9733;</td><td class="h3">&#9733;&#9733;&#9733;</td><td class="h0">.</td></tr>
+          <tr><th class="rw">Organization mismatch</th><td class="h0">.</td><td class="h1">&#9733;</td><td class="h2">&#9733;&#9733;</td><td class="h3">&#9733;&#9733;&#9733;</td><td class="h0">.</td></tr>
+          <tr><th class="rw">Irreducible</th><td class="h0">.</td><td class="h0">.</td><td class="h0">.</td><td class="h0">.</td><td class="abs">&#9733;&#9733;&#9733;</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Conceptual illustration of the intended behavior, not a measured result.</p>
+    </div>
+    <div class="viz">
+      <h3>7 &middot; Two timescales</h3>
+      <p class="cap">Structural actions are investments: they are judged by amortized benefit, so they fire far less often than a reasoning pass. Illustrative frequency per action type.</p>
+      <div class="ts">
+<div class="nm" style="color:var(--think)">Think</div><div class="track"><i style="left:2.1%;background:var(--think);animation-delay:0.97s"></i><i style="left:4.3%;background:var(--think);animation-delay:0.45s"></i><i style="left:6.5%;background:var(--think);animation-delay:1.95s"></i><i style="left:8.6%;background:var(--think);animation-delay:0.22s"></i><i style="left:10.8%;background:var(--think);animation-delay:1.61s"></i><i style="left:13.0%;background:var(--think);animation-delay:1.10s"></i><i style="left:15.2%;background:var(--think);animation-delay:0.17s"></i><i style="left:17.4%;background:var(--think);animation-delay:1.52s"></i><i style="left:19.5%;background:var(--think);animation-delay:0.11s"></i><i style="left:21.7%;background:var(--think);animation-delay:1.30s"></i><i style="left:23.9%;background:var(--think);animation-delay:0.21s"></i><i style="left:26.1%;background:var(--think);animation-delay:0.27s"></i><i style="left:28.3%;background:var(--think);animation-delay:1.27s"></i><i style="left:30.5%;background:var(--think);animation-delay:2.48s"></i><i style="left:32.6%;background:var(--think);animation-delay:0.37s"></i><i style="left:34.8%;background:var(--think);animation-delay:0.67s"></i><i style="left:37.0%;background:var(--think);animation-delay:1.88s"></i><i style="left:39.2%;background:var(--think);animation-delay:2.84s"></i><i style="left:41.4%;background:var(--think);animation-delay:1.73s"></i><i style="left:43.5%;background:var(--think);animation-delay:1.19s"></i><i style="left:45.7%;background:var(--think);animation-delay:2.93s"></i><i style="left:47.9%;background:var(--think);animation-delay:0.14s"></i><i style="left:50.1%;background:var(--think);animation-delay:2.58s"></i><i style="left:52.3%;background:var(--think);animation-delay:0.87s"></i><i style="left:54.5%;background:var(--think);animation-delay:0.43s"></i><i style="left:56.6%;background:var(--think);animation-delay:0.35s"></i><i style="left:58.8%;background:var(--think);animation-delay:0.93s"></i><i style="left:61.0%;background:var(--think);animation-delay:2.45s"></i><i style="left:63.2%;background:var(--think);animation-delay:0.54s"></i><i style="left:65.4%;background:var(--think);animation-delay:1.74s"></i><i style="left:67.5%;background:var(--think);animation-delay:1.92s"></i><i style="left:69.7%;background:var(--think);animation-delay:1.12s"></i><i style="left:71.9%;background:var(--think);animation-delay:1.64s"></i><i style="left:74.1%;background:var(--think);animation-delay:0.19s"></i><i style="left:76.3%;background:var(--think);animation-delay:0.18s"></i><i style="left:78.5%;background:var(--think);animation-delay:0.62s"></i><i style="left:80.6%;background:var(--think);animation-delay:2.04s"></i><i style="left:82.8%;background:var(--think);animation-delay:1.28s"></i><i style="left:85.0%;background:var(--think);animation-delay:0.94s"></i><i style="left:87.2%;background:var(--think);animation-delay:1.76s"></i><i style="left:89.4%;background:var(--think);animation-delay:1.36s"></i><i style="left:91.5%;background:var(--think);animation-delay:0.90s"></i><i style="left:93.7%;background:var(--think);animation-delay:2.38s"></i><i style="left:95.9%;background:var(--think);animation-delay:2.10s"></i></div>
+<div class="nm" style="color:var(--consult)">Consult</div><div class="track"><i style="left:3.7%;background:var(--consult);animation-delay:0.73s"></i><i style="left:9.0%;background:var(--consult);animation-delay:1.72s"></i><i style="left:14.3%;background:var(--consult);animation-delay:1.58s"></i><i style="left:19.7%;background:var(--consult);animation-delay:2.63s"></i><i style="left:25.0%;background:var(--consult);animation-delay:2.19s"></i><i style="left:30.3%;background:var(--consult);animation-delay:0.86s"></i><i style="left:35.7%;background:var(--consult);animation-delay:2.94s"></i><i style="left:41.0%;background:var(--consult);animation-delay:0.35s"></i><i style="left:46.3%;background:var(--consult);animation-delay:1.25s"></i><i style="left:51.7%;background:var(--consult);animation-delay:2.27s"></i><i style="left:57.0%;background:var(--consult);animation-delay:0.46s"></i><i style="left:62.3%;background:var(--consult);animation-delay:1.47s"></i><i style="left:67.7%;background:var(--consult);animation-delay:0.12s"></i><i style="left:73.0%;background:var(--consult);animation-delay:2.00s"></i><i style="left:78.3%;background:var(--consult);animation-delay:2.29s"></i><i style="left:83.7%;background:var(--consult);animation-delay:1.72s"></i><i style="left:89.0%;background:var(--consult);animation-delay:2.63s"></i><i style="left:94.3%;background:var(--consult);animation-delay:0.94s"></i></div>
+<div class="nm" style="color:var(--learn)">Learn</div><div class="track"><i style="left:7.9%;background:var(--learn);animation-delay:2.09s"></i><i style="left:21.6%;background:var(--learn);animation-delay:1.78s"></i><i style="left:35.3%;background:var(--learn);animation-delay:1.74s"></i><i style="left:49.0%;background:var(--learn);animation-delay:1.37s"></i><i style="left:62.7%;background:var(--learn);animation-delay:2.52s"></i><i style="left:76.4%;background:var(--learn);animation-delay:2.83s"></i><i style="left:90.1%;background:var(--learn);animation-delay:1.42s"></i></div>
+<div class="nm" style="color:var(--reorg)">Reorganize</div><div class="track"><i style="left:17.0%;background:var(--reorg);animation-delay:1.99s"></i><i style="left:49.0%;background:var(--reorg);animation-delay:0.18s"></i><i style="left:81.0%;background:var(--reorg);animation-delay:2.10s"></i></div>
+      </div>
+      <div class="ts-axis"><span>time &rarr;</span><span>more tasks &rarr;</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="problems">
+  <div class="container">
+    <div class="has-text-centered" style="margin-bottom:1.4rem">
+      <span class="sec-kicker">Agenda</span>
+      <h2 class="title is-3">Seven open problems</h2>
+    </div>
+    <div class="pmap"><div class="pcard"><div class="id">P1</div><h5>Deficiency identifiability</h5><p>Can a society diagnose <i>why</i> it is uncertain before choosing how to spend computation?</p><span class="mech">inference</span></div>
+<div class="pcard"><div class="id">P2</div><h5>Strategic uncertainty reports</h5><p>Reports come from agents with incentives, so routing on them is a mechanism-design problem.</p><span class="mech">mechanism design</span></div>
+<div class="pcard"><div class="id">P3</div><h5>Budgets and authority</h5><p>How much to delegate to a child, and who may reorganize a nested society?</p><span class="mech">organization</span></div>
+<div class="pcard"><div class="id">P4</div><h5>Recursive credit assignment</h5><p>Which intervention deserves credit when the action set changed along the way?</p><span class="mech">credit assignment</span></div>
+<div class="pcard"><div class="id">P5</div><h5>Emergent organization</h5><p>Do stable divisions of labor emerge from routing pressure alone, without lock-in?</p><span class="mech">self-organization</span></div>
+<div class="pcard"><div class="id">P6</div><h5>Stability</h5><p>Lyapunov-style analysis when actions change the action space itself.</p><span class="mech">control theory</span></div>
+<div class="pcard"><div class="id">P7</div><h5>Scaling and governance</h5><p>How does performance scale with depth, agents and plasticity, and what needs approval?</p><span class="mech">governance</span></div>
+<div class="pcard" style="border-style:dashed"><div class="id">+</div><h5>Open to the community</h5><p>The agenda is deliberately unfinished.</p><span class="mech">join in</span></div></div>
+  </div>
+</section>
+
+<section class="section is-tint" id="predictions">
+  <div class="container">
+    <div class="has-text-centered" style="margin-bottom:1.4rem">
+      <span class="sec-kicker">Testable</span>
+      <h2 class="title is-3">Falsifiable predictions at matched budget</h2>
+    </div>
+    <div class="metrics" style="max-width:1000px;margin:0 auto 1.4rem"><div class="metric"><b>H1</b><span>Match or exceed adaptive baselines at matched budget.</span></div><div class="metric"><b>H2</b><span>Think more on math, Consult more on multi-hop QA.</span></div><div class="metric"><b>H3</b><span>The same shift appears <i>within</i> each task family.</span></div><div class="metric"><b>H4</b><span>Escalate from Think to Consult after unproductive recursion.</span></div></div>
+    <div class="viz">
+      <h3>8 &middot; Prediction H2: the mix shifts with the failure type</h3>
+      <p class="cap">At matched budget, a diagnosing controller should Think more on competition math and Consult more on multi-hop QA with distributed evidence.</p>
+      <div class="pred">
+        <div class="pbox"><h4>Competition mathematics (MATH)</h4>
+          <div class="pbar"><span class="pt" style="flex:62">Think</span><span class="pc" style="flex:24">Consult</span><span class="pl" style="flex:14">Learn</span></div></div>
+        <div class="pbox"><h4>Multi-hop QA (MuSiQue)</h4>
+          <div class="pbar"><span class="pt" style="flex:22">Think</span><span class="pc" style="flex:64">Consult</span><span class="pl" style="flex:14">Learn</span></div></div>
+      </div>
+      <p class="note">Schematic of the predicted direction only. The paper reports no experiments, and these proportions are not data.</p>
+    </div>
+    <p class="has-text-centered" style="max-width:760px;margin:0 auto;color:var(--muted);font-size:.92rem">Tested on competition mathematics (reasoning-dominated failures) and multi-hop QA with evidence distributed across agents, with one shared backbone and adaptive baselines. The paper reports no experiments by design.</p>
+  </div>
+</section>
+
+<section class="section" id="team">
+  <div class="container">
+    <div class="has-text-centered" style="margin-bottom:1.6rem">
+      <span class="sec-kicker">People</span>
+      <h2 class="title is-3">Team</h2>
+    </div>
+    <div class="team" style="grid-template-columns:repeat(7,1fr);max-width:1100px">
+      <div class="member">
+        <div class="ph"><img src="static/images/team/Tirtho.png" alt="Tirtho Roy"></div>
+        <div class="nm"><a href="https://www.linkedin.com/in/tirtho-roy-apon/" target="_blank" rel="noopener">Tirtho Roy</a></div>
+        <div class="af">Iowa State University</div>
+      </div>
+      <div class="member">
+        <div class="ph"><img src="static/images/team/Koushik.png" alt="Koushik Howlader"></div>
+        <div class="nm"><a href="https://www.cs.iastate.edu/people/koushik-howlader" target="_blank" rel="noopener">Koushik Howlader</a></div>
+        <div class="af">Iowa State University</div>
+      </div>
+      <div class="member">
+        <div class="ph"><div class="initials">NS</div></div>
+        <div class="nm"><a href="https://www.linkedin.com/in/nilutpaul-sarker-yash/" target="_blank" rel="noopener">Nilutpaul Sarker Yash</a></div>
+        <div class="af">Iowa State University</div>
+      </div>
+      <div class="member">
+        <div class="ph"><img src="static/images/team/Tanusree.png" alt="Tanusree Bhattacharjee"></div>
+        <div class="nm"><a href="https://www.linkedin.com/in/tanusree-bhattacharjee-869079335/" target="_blank" rel="noopener">Tanusree Bhattacharjee</a></div>
+        <div class="af">Iowa State University</div>
+      </div>
+      <div class="member">
+        <div class="ph"><img src="static/images/team/Sayantan.png" alt="Sayantan Chakraborty"></div>
+        <div class="nm"><a href="https://sayantan1416.github.io/" target="_blank" rel="noopener">Sayantan Chakraborty</a></div>
+        <div class="af">University of Dhaka</div>
+      </div>
+      <div class="member">
+        <div class="ph"><div class="initials">AR</div></div>
+        <div class="nm">Adrito Roy</div>
+        <!-- TODO: affiliation -->
+      </div>
+      <div class="member">
+        <div class="ph"><img src="static/images/team/Ushashi.png" alt="Ushashi Bhattacharjee"></div>
+        <div class="nm"><a href="https://www.linkedin.com/in/ushashi-bhattacharjee/" target="_blank" rel="noopener">Ushashi Bhattacharjee</a></div>
+        <div class="af">Iowa State University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-tint" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <div class="bib-wrap">
+      <button class="copy-btn" type="button" id="copyBib"><i class="far fa-copy"></i> Copy</button>
+      <pre><code id="bibtex">@misc{roy2026urras,
+  title  = {Think, Consult, Learn, Reorganize: Recursive Metareasoning for Self-Modifying Agent Societies},
+  author = {Roy, Tirtho and Howlader, Koushik and Yash, Nilutpaul Sarker and Bhattacharjee, Tanusree and
+            Chakraborty, Sayantan and Roy, Adrito and Bhattacharjee, Ushashi},
+  year   = {2026},
+  note   = {Under review, AAMAS 2027 Blue Sky Ideas Track}
+}</code></pre>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container"><div class="columns is-centered"><div class="column is-8"><div class="content has-text-centered">
+    <p>This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a>, which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page. This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+  </div></div></div></div>
+</footer>
+
+<script src="static/js/flow.js"></script>
+<script>
+  (function () {
+    var btn = document.getElementById('copyBib'); if (!btn) return;
+    btn.addEventListener('click', function () {
+      var txt = document.getElementById('bibtex').innerText;
+      var done = function () { btn.innerHTML = 'Copied!'; setTimeout(function () { btn.innerHTML = '<i class="far fa-copy"></i> Copy'; }, 1600); };
+      if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(txt).then(done, function () {}); }
+    });
+  })();
+</script>
+</body>
+</html>
